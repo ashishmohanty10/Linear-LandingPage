@@ -1,11 +1,12 @@
 import { Button, Highlight } from "@/components/button";
 import { Container } from "@/components/container";
 import { Hero, HeroSubTitle, HeroTitle } from "@/components/hero";
+import { HeroImage } from "@/components/heroImage";
 import { ChevronIcon } from "@/components/icons/chevron";
 
 export default function Home() {
   return (
-    <Container className="pt-[6.4rem]">
+    <Container className="overflow-hidden py-[6.4rem]">
       <Hero>
         <Button
           href="/"
@@ -36,8 +37,7 @@ export default function Home() {
           Get Started
           <ChevronIcon />
         </Button>
-
-        <img src="/img/hero.webp" alt="Hero Image" />
+        <HeroImage />
       </Hero>
     </Container>
   );

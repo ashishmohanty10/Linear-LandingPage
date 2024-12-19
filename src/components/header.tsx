@@ -36,7 +36,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full border-b border-transparent-white backdrop-blur-[12px]">
+    <header className="fixed top-0 left-0 w-full border-b border-transparent-white backdrop-blur-[12px] z-50">
       <Container className="flex h-navigation-height items-center">
         <Link href="/" className="flex items-center text-md">
           <Logo className="w-[1.8rem] h-[1.8rem] mr-4 " /> Linear
