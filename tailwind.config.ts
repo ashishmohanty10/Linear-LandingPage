@@ -14,8 +14,15 @@ export default {
       xs: "1.3rem",
       sm: "1.4rem",
       md: "1.6rem",
-      lg: ["2.2rem", "1.3"],
-      "5xl": ["8rem", "1"],
+      lg: "1.8rem",
+      xl: ["2.2rem", "1.3"],
+      "2xl": "2.4rem",
+      "3xl": "2.6rem",
+      "4xl": "3.2rem",
+      "5xl": "4rem",
+      "6xl": ["4.4rem", "1.1"],
+      "7xl": ["4.8rem", "1.1"],
+      "8xl": ["8rem", "1.1"],
     },
     colors: {
       transparent: "transparent",
@@ -70,6 +77,26 @@ export default {
     },
     boxShadow: {
       primary: "rgb(80 63 205 / 50%) 0px 1px 40px",
+    },
+    transitionDelay: {
+      0: "0ms",
+    },
+
+    keyframes: {
+      "fade-in": {
+        from: { opacity: "0", transform: "translateY(-10px)" },
+        to: { opacity: "1", transfrom: "none" },
+      },
+      "image-rotate": {
+        "0%": { transform: "rotateX(25deg)" },
+        "25%": { transform: "rotateX(25deg) scale(0.9)" },
+        "60%": { transform: "none" },
+        "100%": { transform: "none" },
+      },
+    },
+    animation: {
+      "fade-in": "fade-in 1000ms var(--animation-delay, 0ms) ease forwards",
+      "image-rotate": "image-rotate 1400ms ease forwards",
     },
   },
 
