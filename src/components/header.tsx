@@ -5,16 +5,35 @@ import { Logo } from "./icons/logo";
 import { Container } from "./container";
 import { Button } from "./button";
 import { Hamburger } from "./icons/hamburger";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/utils/utils";
 
 export const Header = () => {
-  const [toggle, setToggle] = useState<boolean>(false);
+  const [hamburgerIcon, setHamhamburgerIcon] = useState<boolean>(false);
 
   const handleToggle = () => {
     console.log("clicked");
-    setToggle(!toggle);
+    setHamhamburgerIcon(!hamburgerIcon);
   };
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+
+    if (html) html.classList.toggle("overflow-hidden", hamburgerIcon);
+  }, [hamburgerIcon]);
+
+  useEffect(() => {
+    const closehamburgerNavigation = () => setHamhamburgerIcon(false);
+    window.addEventListener("orientationchange", closehamburgerNavigation);
+
+    window.addEventListener("resize", closehamburgerNavigation);
+
+    return () => {
+      window.removeEventListener("orientationchange", closehamburgerNavigation);
+
+      window.removeEventListener("resize", closehamburgerNavigation);
+    };
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 w-full border-b border-transparent-white backdrop-blur-[12px]">
@@ -26,19 +45,21 @@ export const Header = () => {
         <div
           className={cn(
             "tranition-[visibility] md:visible",
-            toggle ? "visible" : "invisible delay-300"
+            hamburgerIcon ? "visible" : "invisible delay-300"
           )}
         >
           <nav
             className={cn(
-              "transition-opacity duration-500 h-[calc(100vh_-_var(--navigation-height))] overflow-auto md:block fixed top-navigation-height left-0 w-full bg-background md:relative md:h-auto md:top-0 md:w-auto md:bg-transparent md:opacity-100",
-              toggle ? "opacity-100" : "opacity-0"
+              "transition-opacity duration-500 h-[calc(100vh_-_var(--navigation-height))] overflow-auto md:block fixed top-navigation-height left-0 w-full bg-background md:relative md:h-auto md:top-0 md:w-auto md:bg-transparent md:opacity-100 md:translate-x-0 ",
+              hamburgerIcon
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-[-100vw]"
             )}
           >
             <ul
               className={cn(
                 "flex h-full flex-col md:flex-row md:items-center [&_li]:ml-6 [&_li]:border-b  [&_li]:border-grey-dark md:[&_li]:border-none ease-in [&_a:hover]:text-grey [&_a]:flex [&_a]:h-navigation-height [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-lg [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-sm [&_a]:md:transition-colors",
-                toggle && "[&_a]:translate-y-0"
+                hamburgerIcon && "[&_a]:translate-y-0"
               )}
             >
               <li>
