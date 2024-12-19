@@ -49,6 +49,7 @@ export default {
       18: "7.2rem",
       19: "7.6rem",
       20: "8rem",
+      "navigation-height": "var(--navigation-height)",
     },
 
     backgroundImage: {

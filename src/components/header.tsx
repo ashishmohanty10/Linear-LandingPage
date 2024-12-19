@@ -1,41 +1,70 @@
+"use client";
+
 import Link from "next/link";
 import { Logo } from "./icons/logo";
 import { Container } from "./container";
 import { Button } from "./button";
+import { Hamburger } from "./icons/hamburger";
+import { useState } from "react";
+import { cn } from "@/utils/utils";
 
 export const Header = () => {
+  const [toggle, setToggle] = useState<boolean>(false);
+
+  const handleToggle = () => {
+    console.log("clicked");
+    setToggle(!toggle);
+  };
+
   return (
     <header className="fixed top-0 left-0 w-full border-b border-transparent-white backdrop-blur-[12px]">
-      <Container className="flex h-[var(--navigation-height)] items-center">
+      <Container className="flex h-navigation-height items-center">
         <Link href="/" className="flex items-center text-md">
           <Logo className="w-[1.8rem] h-[1.8rem] mr-4 " /> Linear
         </Link>
 
-        <nav className="h-full">
-          <ul className="flex items-center h-full [&_a]:text-sm [&_li]:ml-6 [&_a:hover]:text-grey [&_a]:transition-colors">
-            <li>
-              <Link href="#">Features</Link>
-            </li>
-            <li>
-              <Link href="#">Method</Link>
-            </li>
-            <li>
-              <Link href="#">Customers</Link>
-            </li>
-            <li>
-              <Link href="#">Changelog</Link>
-            </li>
-            <li>
-              <Link href="#">Integrations</Link>
-            </li>
-            <li>
-              <Link href="#">Pricing</Link>
-            </li>
-            <li>
-              <Link href="#">Company</Link>
-            </li>
-          </ul>
-        </nav>
+        <div
+          className={cn(
+            "tranition-[visibility] md:visible",
+            toggle ? "visible" : "invisible delay-300"
+          )}
+        >
+          <nav
+            className={cn(
+              "transition-opacity duration-500 h-[calc(100vh_-_var(--navigation-height))] overflow-auto md:block fixed top-navigation-height left-0 w-full bg-background md:relative md:h-auto md:top-0 md:w-auto md:bg-transparent md:opacity-100",
+              toggle ? "opacity-100" : "opacity-0"
+            )}
+          >
+            <ul
+              className={cn(
+                "flex h-full flex-col md:flex-row md:items-center [&_li]:ml-6 [&_li]:border-b  [&_li]:border-grey-dark md:[&_li]:border-none ease-in [&_a:hover]:text-grey [&_a]:flex [&_a]:h-navigation-height [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-lg [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-sm [&_a]:md:transition-colors",
+                toggle && "[&_a]:translate-y-0"
+              )}
+            >
+              <li>
+                <Link href="#">Features</Link>
+              </li>
+              <li>
+                <Link href="#">Method</Link>
+              </li>
+              <li className="md:hidden lg:block">
+                <Link href="#">Customers</Link>
+              </li>
+              <li className="md:hidden lg:block">
+                <Link href="#">Changelog</Link>
+              </li>
+              <li className="md:hidden lg:block">
+                <Link href="#">Integrations</Link>
+              </li>
+              <li>
+                <Link href="#">Pricing</Link>
+              </li>
+              <li>
+                <Link href="#">Company</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
         <div className="flex items-center ml-auto h-full">
           <Button href="#" variant="secondary" className="text-sm mr-6">
@@ -45,6 +74,11 @@ export const Header = () => {
             Sign up
           </Button>
         </div>
+
+        <button className="ml-6 md:hidden" onClick={handleToggle}>
+          <span className="sr-only ">Toggle Menu</span>
+          <Hamburger />
+        </button>
       </Container>
     </header>
   );
