@@ -127,6 +127,14 @@ export default {
         "90%": { opacity: "1" },
         "100%": { opacity: "0", transform: "translateY(min(21vw, 45rem))" },
       },
+      zap: {
+        "0%, 9% , 11% , 100%": {
+          fill: "transparent",
+        },
+        "10%": {
+          fill: "white",
+        },
+      },
     },
     animation: {
       "fade-in": "fade-in 1000ms var(--animation-delay, 0ms) ease forwards",
@@ -141,6 +149,7 @@ export default {
         "radial-gradient(circle at bottom center,var(--color),transparent 70%)",
       "glass-gradient":
         "linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)",
+      zap: "zap 2250ms calc(var(--index)*20ms) linear infinite",
     },
   },
 

@@ -1,13 +1,13 @@
-import { AlanLogo } from "./logo/alan";
-import { ArcLogo } from "./logo/arc";
-import { DescriptLogo } from "./logo/descript";
-import { LoomLogo } from "./logo/loom";
-import { MercuryLogo } from "./logo/mercury";
-import { OpenSeaLogo } from "./logo/opensea";
-import { PitchLogo } from "./logo/pitch";
-import { RampLogo } from "./logo/ramp";
-import { RetoolLogo } from "./logo/retool";
-import { VercelLogo } from "./logo/vercel";
+import { AlanLogo } from "../logo/alan";
+import { ArcLogo } from "../logo/arc";
+import { DescriptLogo } from "../logo/descript";
+import { LoomLogo } from "../logo/loom";
+import { MercuryLogo } from "../logo/mercury";
+import { OpenSeaLogo } from "../logo/opensea";
+import { PitchLogo } from "../logo/pitch";
+import { RampLogo } from "../logo/ramp";
+import { RetoolLogo } from "../logo/retool";
+import { VercelLogo } from "../logo/vercel";
 
 export const Clients = () => {
   return (
