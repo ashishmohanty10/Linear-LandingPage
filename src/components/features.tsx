@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useInView } from "react-intersection-observer";
@@ -62,7 +63,7 @@ const MainFeature = ({
             {title}
           </h2>
           <div className="relative z-10 rounded-[14px] backdrop-blur-[6px] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(rgba(255,_255,_255,_0.3),_rgba(255,_255,_255,_0)_120%)] before:p-[1px] before:[mask:linear-gradient(black,_black)_content-box_content-box,_linear-gradient(black,_black)] before:[mask-composite:xor] after:pointer-events-none after:absolute after:inset-0 after:rounded-[inherit] after:bg-[rgba(255,_255,_255,_0.15)] after:[mask:linear-gradient(black,transparent)]">
-            <img src={image} className="h-auto w-full" />
+            <img alt="image" src={image} className="h-auto w-full" />
           </div>
         </Container>
       </div>
@@ -123,6 +124,7 @@ const FeatureCards = ({ features }: FeatureCardsProps) => {
             <h3 className="mb-2 text-2xl text-white">{title}</h3>
             <p className="max-w-[31rem] text-md text-primary-text">{text}</p>
             <img
+              alt="image"
               className={cn("absolute max-w-none", imageClassName)}
               src={image}
             />

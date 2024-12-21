@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -103,6 +104,7 @@ export const CommandMenu = () => {
     commandMenuRef.current.clientWidth;
     commandMenuRef.current.classList.add("animate-bounce");
   }, [selectedOptions]);
+
   return (
     <div ref={commandMenuRef} className={cn(opened && "opened")}>
       <div
