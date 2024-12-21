@@ -135,6 +135,12 @@ export default {
           fill: "white",
         },
       },
+
+      bounce: {
+        "50%": {
+          transform: "scale(0.98)",
+        },
+      },
     },
     animation: {
       "fade-in": "fade-in 1000ms var(--animation-delay, 0ms) ease forwards",
@@ -150,6 +156,7 @@ export default {
       "glass-gradient":
         "linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)",
       zap: "zap 2250ms calc(var(--index)*20ms) linear infinite",
+      bounce: "240ms ease 0s 1 running bounce",
     },
   },
 
