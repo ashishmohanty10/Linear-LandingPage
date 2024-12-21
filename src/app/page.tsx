@@ -4,6 +4,8 @@ import { Container } from "@/components/container";
 import { Hero, HeroSubTitle, HeroTitle } from "@/components/hero";
 import { HeroImage } from "@/components/heroImage";
 import { ChevronIcon } from "@/components/icons/chevron";
+import { StarsIllustration } from "@/components/icons/star";
+import { cn } from "@/utils/utils";
 
 export default function Home() {
   return (
@@ -48,6 +50,16 @@ export default function Home() {
       <Container>
         <Clients />
       </Container>
+      <div
+        className={cn(
+          "h-[60rem] my-[-12.8rem] overflow-hidden relative mask-radial-faded",
+          "before:absolute before:opacity-[0.4] before:bg-radial-faded [--color:#7877C6] before:inset-0",
+
+          "after:absolute after:bg-background after:rounded-[50%] after:border-t after:border-[rgba(120,_119,_198,_0.4)] after:top-1/2  after:-left-1/2 after:w-[200%] after:h-[142.8%]"
+        )}
+      >
+        <StarsIllustration />
+      </div>
     </>
   );
 }
