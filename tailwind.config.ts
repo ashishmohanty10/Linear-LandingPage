@@ -137,6 +137,10 @@ export default {
         "glow-line-horizontal var(--animation-duration) ease-in forwards",
       "glow-line-vertical":
         "glow-line-vertical var(--animation-duration) ease-in forwards",
+      "radial-faded":
+        "radial-gradient(circle at bottom center,var(--color),transparent 70%)",
+      "glass-gradient":
+        "linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)",
     },
   },
 
